@@ -1,0 +1,170 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #f0f0f0; /* Fondo gris claro */
+    color: #333; /* Texto en gris oscuro */
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #444; /* Gris intermedio */
+}
+
+.add-button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #333; /* Botón negro */
+    border: none;
+    border-radius: 5px;
+    color: #fff; /* Texto blanco */
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #555; /* Gris oscuro */
+    transform: scale(1.05);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.contact-card {
+    background-color: #fff; /* Fondo blanco */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra más prominente */
+}
+
+.contact-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.contact-actions button {
+    background-color: #333; /* Fondo negro */
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin: 5px;
+    color: #fff; /* Texto blanco */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-actions button:hover {
+    background-color: #555; /* Fondo gris oscuro */
+}
+
+.add-contact {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 10px;
+    border: 1px solid #ddd; /* Borde gris claro */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.add-contact form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-contact input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Fondo gris claro */
+    color: #333; /* Texto gris oscuro */
+}
+
+.add-contact button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-contact button:hover {
+    background-color: #555; /* Fondo gris oscuro */
+}
+
+.edit-contact {
+    max-width: 400px; /* Ancho máximo igual al de AddContact */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 10px;
+    border: 1px solid #ddd; /* Borde gris claro */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.edit-contact h2 {
+    text-align: center;
+    color: #444; /* Gris intermedio */
+    margin-bottom: 20px; /* Espaciado adicional */
+}
+
+.edit-contact form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-contact input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Fondo gris claro */
+    color: #333; /* Texto gris oscuro */
+}
+
+.edit-contact button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px; /* Espaciado adicional */
+}
+
+.edit-contact button:hover {
+    background-color: #555; /* Fondo gris oscuro */
+}
