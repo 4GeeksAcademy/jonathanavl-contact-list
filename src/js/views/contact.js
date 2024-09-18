@@ -8,7 +8,7 @@ const Contact = () => {
 
     useEffect(() => {
         actions.loadContacts(); 
-    }, [actions]);
+    }, []);
 
     return (
         <div className="contact-list">

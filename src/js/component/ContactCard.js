@@ -1,14 +1,20 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types'; // Importa PropTypes desde 'prop-types'
 import { Context } from '../store/appContext';
+import { useNavigate } from 'react-router-dom';
 
 export const ContactCard = ({ contact }) => {
     const { actions } = useContext(Context);
+    const navigate = useNavigate();
 
     const handleDelete = () => {
         if (window.confirm('Are you sure you want to delete this contact?')) {
             actions.deleteContact(contact.id);
         }
+    };
+    const handleEdit = () => {
+        actions.loadContactForm(contact);
+        navigate('/add-contact');
     };
 
     return (
@@ -19,19 +25,9 @@ export const ContactCard = ({ contact }) => {
             <p>{contact.phone}</p>
             <p>{contact.address}</p>
             <div className="contact-actions">
-                <button onClick={() => actions.updateContact(contact.id, contact)}>Edit</button>
+                <button onClick={handleEdit}>Edit</button>
                 <button onClick={handleDelete}>Delete</button>
             </div>
         </div>
     );
-};
-
-ContactCard.propTypes = {
-    contact: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        email: PropTypes.string.isRequired,
-        phone: PropTypes.string.isRequired,
-        address: PropTypes.string.isRequired,
-    }).isRequired
 };

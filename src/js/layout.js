@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-import { Home } from "./views/home"; // Named import
-import Contact from "./views/contact"; // Default import
+import { Home } from "./views/home";
+import Contact from "./views/contact"; 
 import AddContact from "./views/addcontact";
 import injectContext from "./store/appContext";
 

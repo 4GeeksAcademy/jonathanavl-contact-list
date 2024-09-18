@@ -1,44 +1,38 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
 import { useNavigate } from 'react-router-dom';
 
 const AddContact = () => {
-    // Definición del estado local para el nuevo contacto
-    const [contact, setContact] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        address: ''
-    });
-
-    const { actions } = useContext(Context);
+    const { store, actions } = useContext(Context);
     const navigate = useNavigate();
 
     const handleChange = (e) => {
-        // Actualizar el estado con los valores de los campos del formulario
-        setContact({ ...contact, [e.target.name]: e.target.value });
+        actions.setContactForm(e.target.name, e.target.value);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Añadir contacto y luego actualizar la lista de contactos
-            await actions.addContact(contact);
-            navigate('/'); // Redirigir después de añadir el contacto
+            if (store.contactForm.id) {
+                await actions.updateContact(store.contactForm.id, store.contactForm);
+            } else {
+                await actions.addContact();
+            }
+            navigate('/');
         } catch (error) {
-            console.error('Error adding contact:', error);
+            console.error('Error saving contact:', error);
         }
     };
 
     return (
         <div className="add-contact">
-            <h2>Add New Contact</h2>
+            <h2>{store.contactForm.id ? 'Edit Contact' : 'Add New Contact'}</h2>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     name="name"
                     placeholder="Name"
-                    value={contact.name}
+                    value={store.contactForm.name}
                     onChange={handleChange}
                     required
                 />
@@ -46,7 +40,7 @@ const AddContact = () => {
                     type="email"
                     name="email"
                     placeholder="Email"
-                    value={contact.email}
+                    value={store.contactForm.email}
                     onChange={handleChange}
                     required
                 />
@@ -54,18 +48,18 @@ const AddContact = () => {
                     type="tel"
                     name="phone"
                     placeholder="Phone"
-                    value={contact.phone}
+                    value={store.contactForm.phone}
                     onChange={handleChange}
                     required
                 />
                 <input
-                    type="text" // Cambiado a 'text'
-                    name="address" // Cambiado a 'address'
-                    placeholder="Address" // Cambiado a 'Address'
-                    value={contact.address}
+                    type="text"
+                    name="address"
+                    placeholder="Address"
+                    value={store.contactForm.address}
                     onChange={handleChange}
                 />
-                <button type="submit">Add Contact</button>
+                <button type="submit">{store.contactForm.id ? 'Update Contact' : 'Add Contact'}</button>
             </form>
         </div>
     );
